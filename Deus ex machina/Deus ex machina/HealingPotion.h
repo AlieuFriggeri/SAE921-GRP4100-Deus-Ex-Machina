@@ -3,17 +3,19 @@
 #include "Potion.h"
 
 class HealingPotion :
-    public Potion
+    public Item
 {
-    std::string name;
-    int hp;
+protected:
+    std::string type;
+    int hpToGive;
 
 
 public:
     HealingPotion();
-    HealingPotion(std::string name_, int hp_);
+    HealingPotion(std::string type_, int hp_);
     ~HealingPotion();
 
+    void Display();
 
 
 };

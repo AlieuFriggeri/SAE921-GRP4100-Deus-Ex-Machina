@@ -5,16 +5,16 @@
 class Potion :
     public Item
 {
-    std::string name;
-
-
+    std::string type;
+    int hpToGive;
+    int atkToGive;
+    
 public:
     Potion();
-    Potion(std::string name_);
+    Potion(std::string type_, int hpToGive_, int atkToGive_);
     ~Potion();
 
-
-
+    void Display();
 
 };
 #endif

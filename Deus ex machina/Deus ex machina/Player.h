@@ -1,19 +1,14 @@
 #ifndef PLAYER
 #define PLAYER
 #include <vector>
-#include "Item.h"
+#include "HealingPotion.h"
 #include "Weapon.h"
 class Player
 {
-
-
 	std::string name;
 	int hp;
 	int atk;
-	std::vector<Item> inventory;
-
-
-
+	std::vector<Item*> inventory;
 
 public:
 
@@ -21,6 +16,7 @@ public:
 	Player(std::string name_,int hp_, int atk_);
 	~Player();
 
+	void PrintName();
 	void attack();
 	void defend();
 	void heal();
@@ -32,6 +28,7 @@ public:
 	 void useForcePot();
 	 void equip();
 	 void displayInventory();
+	 std::vector<Item*> Get_Inventory();
 
 
 

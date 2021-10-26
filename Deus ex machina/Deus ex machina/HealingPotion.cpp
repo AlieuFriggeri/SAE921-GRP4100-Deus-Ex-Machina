@@ -2,18 +2,24 @@
 
 HealingPotion::HealingPotion()
 {
-	name = "Healing Potion";
-	hp = 10;
+	type  = "Healing Potion";
+	hpToGive = 10;
 }
 
-HealingPotion::HealingPotion(std::string name_, int hp_)
+HealingPotion::HealingPotion(std::string type_, int hpToGive_)
 {
-	name = name_;
-	hp = hp_;
+	type = type_;
+	hpToGive = hpToGive_;
 }
 
 HealingPotion::~HealingPotion()
 {
+}
+
+void HealingPotion::Display()
+{
+	std::cout << type << std::endl;
+	std::cout << "this potion gives " << hpToGive << "hp to player" << std::endl;
 }
 
 

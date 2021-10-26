@@ -1,29 +1,17 @@
 #ifndef ITEM
 #define ITEM
-#include <string>
+#include <iostream>
 
 class Item
 {
-public:
-	enum class Type
-	{
-		healingPotion,
-		forcePotion,
-		sword,
-		bow
-	};
-private:
-	//std::string name;
-
-	Type type;
+protected:
+	std::string type;
 public:
 	Item();
-	Item(Type type_);
+	Item(std::string type_);
 	~Item();
 
-
-
-
+	virtual void Display() = 0;
 };
 
 #endif

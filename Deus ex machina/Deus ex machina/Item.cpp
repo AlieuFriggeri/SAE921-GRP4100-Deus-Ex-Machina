@@ -2,16 +2,15 @@
 
 Item::Item()
 {
-	//name = "item";
-	type = Type::healingPotion;
+	type = "item";
 }
 
-Item::Item(Type type_)
+Item::Item(std::string type_)
 {
-	//name = name_;
 	type = type_;
 }
 
 Item::~Item()
 {
 }
+
