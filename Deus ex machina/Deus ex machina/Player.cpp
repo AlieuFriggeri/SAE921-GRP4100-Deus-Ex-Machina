@@ -7,7 +7,7 @@ Player::Player()
 	name = "player";
 	hp = 100;
 	atk = 10;
-
+	//inventory.push_back();
 }
 
 Player::Player(std::string name_, int hp_, int atk_)
@@ -16,8 +16,7 @@ Player::Player(std::string name_, int hp_, int atk_)
 	hp = hp_;
 	atk = atk_;
 	HealingPotion healingPotion("healing potion", 10);
-	//Item* healingPotionptr = &healingPotion;
-	inventory.push_back(&healingPotion);
+	//inventory.push_back(std::make_unique<Item>(HealingPotion("healing pot", 10)));
 	
 }
 
@@ -78,13 +77,13 @@ void Player::equip()
 
 void Player::displayInventory()
 {
-	for (auto item : inventory)
+	for (int i = 0; i < inventory.size() ; i++)
 	{
-		item->Display();
+		inventory[i]->Display();
 	}
 }
 
-std::vector<Item*> Player::Get_Inventory()
+std::vector<std::unique_ptr<Item>> Player::Get_Inventory()
 {
 	return inventory;
 }

@@ -8,8 +8,8 @@ class Player
 	std::string name;
 	int hp;
 	int atk;
-	std::vector<Item*> inventory;
-
+	std::vector<std::unique_ptr<Item>> inventory;
+	//Inventory inventory;
 public:
 
 	Player();
@@ -28,7 +28,7 @@ public:
 	 void useForcePot();
 	 void equip();
 	 void displayInventory();
-	 std::vector<Item*> Get_Inventory();
+	 std::vector<std::unique_ptr<Item>> Get_Inventory();
 
 
 
