@@ -13,48 +13,81 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Inventory">
+      <UniqueIdentifier>{9c23059e-f7db-4f4f-bfef-0875d003694c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Items">
+      <UniqueIdentifier>{1977184b-e9b9-43ac-ad37-6bb5dbbd9e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Items\Potions">
+      <UniqueIdentifier>{ae953455-19f7-40bc-bfbb-a8119a9bed42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\BattleCharacters">
+      <UniqueIdentifier>{ce235ed2-e871-4489-a7af-4211f7a67002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\BattleCharacters">
+      <UniqueIdentifier>{412cb0ae-188b-4bdf-9457-d94440abe343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Items">
+      <UniqueIdentifier>{6d75b025-db4e-4679-82fa-5cd6f10a0259}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Items\Potions">
+      <UniqueIdentifier>{251e7d60-722c-434c-be07-54f35e791803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Inventory">
+      <UniqueIdentifier>{78c14f1a-32a8-4c6e-9329-d29bfc8c0e58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\main">
+      <UniqueIdentifier>{876c80e7-c082-49ac-8a85-b5740e4360fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Deus ex machina.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\BattleCharacters</Filter>
     </ClCompile>
     <ClCompile Include="Monster.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\BattleCharacters</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="HealingPotion.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Items</Filter>
     </ClCompile>
     <ClCompile Include="ForcePotion.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Items\Potions</Filter>
+    </ClCompile>
+    <ClCompile Include="HealingPotion.cpp">
+      <Filter>Fichiers sources\Items\Potions</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Fichiers sources\Items\Potions</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Fichiers sources\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Deus ex machina.cpp">
+      <Filter>Fichiers sources\main</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="ForcePotion.h">
+      <Filter>Fichiers d%27en-tête\Items\Potions</Filter>
     </ClInclude>
     <ClInclude Include="HealingPotion.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Items\Potions</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Fichiers d%27en-tête\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Fichiers d%27en-tête\Items</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Items</Filter>
     </ClInclude>
-    <ClInclude Include="ForcePotion.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Monster.h">
+      <Filter>Fichiers d%27en-tête\BattleCharacters</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Fichiers d%27en-tête\BattleCharacters</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

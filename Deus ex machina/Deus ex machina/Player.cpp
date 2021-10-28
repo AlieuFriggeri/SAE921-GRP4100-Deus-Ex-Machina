@@ -29,11 +29,11 @@ void Player::PrintName()
 	std::cout << name;
 }
 
-void Player::attack()
+/*void Player::attack()
 {
 	std::cout << "player attacks" << std::endl;
 
-}
+}*/
 
 void Player::defend()
 {
@@ -77,13 +77,30 @@ void Player::equip()
 
 void Player::displayInventory()
 {
-	for (int i = 0; i < inventory.size() ; i++)
-	{
-		inventory[i]->Display();
-	}
+	inventory.Display();
 }
 
-std::vector<std::unique_ptr<Item>> Player::Get_Inventory()
+Inventory Player::Get_Inventory()
 {
 	return inventory;
+}
+
+void Player::setHpLost(int hp_lost)
+{
+	hp -= hp_lost;
+}
+
+int Player::getAtk()
+{
+	return atk;
+}
+
+int Player::getHp()
+{
+	return hp;
+}
+
+std::string Player::getName()
+{
+	return name;
 }
