@@ -23,4 +23,6 @@ void Inventory::Display()
 	{
 		itemPtr->Display();
 	}
+
+	std::cout << std::endl;
 }

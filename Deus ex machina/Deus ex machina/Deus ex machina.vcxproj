@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Battle.cpp" />
     <ClCompile Include="Deus ex machina.cpp" />
     <ClCompile Include="ForcePotion.cpp" />
     <ClCompile Include="HealingPotion.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Battle.h" />
     <ClInclude Include="ForcePotion.h" />
     <ClInclude Include="HealingPotion.h" />
     <ClInclude Include="Inventory.h" />

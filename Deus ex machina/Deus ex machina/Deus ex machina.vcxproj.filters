@@ -40,6 +40,12 @@
     <Filter Include="Fichiers sources\main">
       <UniqueIdentifier>{876c80e7-c082-49ac-8a85-b5740e4360fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Battle">
+      <UniqueIdentifier>{19bc1d6c-1b68-4a3f-9ac3-2d176dfddda9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Battle">
+      <UniqueIdentifier>{336c4168-828a-4c2d-a8b3-3b440277fbb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
@@ -66,6 +72,9 @@
     <ClCompile Include="Deus ex machina.cpp">
       <Filter>Fichiers sources\main</Filter>
     </ClCompile>
+    <ClCompile Include="Battle.cpp">
+      <Filter>Fichiers sources\Battle</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ForcePotion.h">
@@ -88,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Fichiers d%27en-tête\BattleCharacters</Filter>
+    </ClInclude>
+    <ClInclude Include="Battle.h">
+      <Filter>Fichiers d%27en-tête\Battle</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

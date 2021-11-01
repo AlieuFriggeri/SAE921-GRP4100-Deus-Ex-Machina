@@ -5,14 +5,17 @@
 #include <iostream>
 #include <conio.h>
 #include <thread>
-#include "Monster.h"
-#include "Player.h"
+#include "Battle.h"
+
+
 
 int main()
 {
 	//VARIABLES PRE EXISTANTES AU JEU
 	srand(time(NULL));
 	Monster monster("grimgor", 50, 10);
+	Monster* monsterPtr = &monster;
+
 
 	//HISTOIRE
 	std::cout
@@ -30,6 +33,7 @@ int main()
 	std::cin >> player_name;
 
 	Player player(player_name, 50, 15);
+	Player* playerPtr = &player;
 	HealingPotion healingPotion("healing potion", 10);
 
 	std::cout << std::endl;
@@ -43,67 +47,15 @@ int main()
 
 
 	//EXPERIENCE DE JEU
-	std::cout << "Entrer dans le champ de bataille (y/..) " << std::endl;
+	std::cout << "Entrer dans le champ de bataille (y/other) " << std::endl;
 	char c = _getch();
-
+	
+	//Battle 1
 	if (c == 'y')
 	{
-		do
-		{
-			std::cout << "HP:" << player.getHp() << std::endl;
-			std::cout << "Attaquer (a) ";
-
-			char c = _getch();
-
-			while (c != 'a')
-			{
-				std::cout << std::endl <<  "Attaquer (a) " << std::endl;
-				c = _getch();
-			}
-
-			std::cout << std::endl;
-			
-			int scorePlayer = rand() % 10;
-			int scoreMonster = rand() % 10;
-
-			if (scorePlayer > scoreMonster)
-			{
-				monster.setHpLost(player.getAtk());
-				std::cout << player.getName() << " inflige " << player.getAtk() << " de degats a " << monster.getName() << "(" << (monster.getHp() <=0 ? 0 : monster.getHp()) << "hp)" <<  std::endl << std::endl;
-			}
-
-			else if (scoreMonster > scorePlayer)
-			{
-				player.setHpLost(monster.getAtk());
-				std::cout << monster.getName() << "(" << monster.getHp() << "hp)" << " inflige " << monster.getAtk() << " de degats a " << player.getName() << std::endl << std::endl;
-			}
-
-			else if (scorePlayer == scoreMonster)
-			{
-				monster.setHpLost(player.getAtk() / 2);
-				player.setHpLost(monster.getAtk()  / 2);
-				std::cout << monster.getName() << "(" << monster.getHp() << "hp)" << " inflige " << monster.getAtk() / 2 << " de degats a " << player.getName() << std::endl << std::endl;
-				std::cout << player.getName() << " inflige " << player.getAtk() / 2 << " de degats a " << monster.getName() << std::endl;	
-			}
-
-			std::this_thread::sleep_for(std::chrono::seconds(2));
-
-		} while (monster.getHp() > 0 && player.getHp() > 0);
-
-		if (player.getHp() > 0)
-		{
-			std::cout << player.getName() << " remporte le combat" << std::endl;
-			std::cout << "hp restants: " << player.getHp() << std::endl;
-		}
-
-		else if (player.getHp() < 0)
-		{
-			std::cout << player.getName() << " meurt au combat" << std::endl;
-			return EXIT_FAILURE;
-		}
-		
+		Battle battle(playerPtr, monsterPtr);
+		battle.Start();
 	}
-
 	else
 	{
 
@@ -121,61 +73,40 @@ int main()
 		else if (c == 'n')
 		{
 			std::cout << "Quelle surprise! Allez soldat, va te battre pour Dicemania!" << std::endl << std::endl;
-			do
-			{
-				std::cout << "HP:" << player.getHp() << std::endl;
-				std::cout << "Attaquer (a) ";
 
-				char c = _getch();
-
-				while (c != 'a')
-				{
-					std::cout << std::endl << "Attaquer (a) " << std::endl;
-					c = _getch();
-				}
-
-				std::cout << std::endl;
-
-				int scorePlayer = rand() % 10;
-				int scoreMonster = rand() % 10;
-
-				if (scorePlayer > scoreMonster)
-				{
-					monster.setHpLost(player.getAtk());
-					std::cout << player.getName() << " inflige " << player.getAtk() << " de degats a " << monster.getName() << "(" << (monster.getHp() <= 0 ? 0 : monster.getHp()) << "hp)" << std::endl << std::endl;
-				}
-
-				else if (scoreMonster > scorePlayer)
-				{
-					player.setHpLost(monster.getAtk());
-					std::cout << monster.getName() << "(" << monster.getHp() << "hp)" << " inflige " << monster.getAtk() << " de degats a " << player.getName() << std::endl << std::endl;
-				}
-
-				else if (scorePlayer == scoreMonster)
-				{
-					monster.setHpLost(player.getAtk() / 2);
-					player.setHpLost(monster.getAtk() / 2);
-					std::cout << monster.getName() << "(" << monster.getHp() << "hp)" << " inflige " << monster.getAtk() / 2 << " de degats a " << player.getName() << std::endl << std::endl;
-					std::cout << player.getName() << " inflige " << player.getAtk() / 2 << " de degats a " << monster.getName() << std::endl;
-				}
-
-				std::this_thread::sleep_for(std::chrono::seconds(2));
-
-			} while (monster.getHp() > 0 && player.getHp() > 0);
-
-			if (player.getHp() > 0)
-			{
-				std::cout << player.getName() << " remporte le combat" << std::endl;
-				std::cout << "hp restants :" << player.getHp() << std::endl;
-			}
-
-			else if (player.getHp() < 0)
-			{
-				std::cout << player.getName() << " meurt au combat" << std::endl;
-				return EXIT_FAILURE;
-			}
+			Battle firstBattle(playerPtr, monsterPtr);
+			firstBattle.Start();
 		}
 	}
+
+	//If player is dead, then end program
+	if (playerPtr->getHp() <= 0)
+		return EXIT_FAILURE;
+
+	/* if player is still alive
+	-if he has loots
+		- add loots to inventory
+		- show him
+
+	-if no loots
+		- ask
+			- access inventory?
+				std::cout << "votre inventaire: " << std::endl;
+				player.displayInventory();
+				1 drink heal pot
+				2 drink force pot
+				3 throw item
+				4 leave inventory
+
+			- or continue
+				- std::cout << "Acceder a la prochaine zone (y/other)\n";
+
+				char c_ = _getch();
+				if (c_ == 'y')
+				{
+					std::cout << "go" << std::endl;
+				}
+	*/
 
 	return EXIT_SUCCESS;
 }
