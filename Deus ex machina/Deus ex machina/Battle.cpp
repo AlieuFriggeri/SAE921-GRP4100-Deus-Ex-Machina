@@ -23,12 +23,12 @@ void Battle::Start()
 		std::cout << "HP:" << playerPtr->getHp() << std::endl;
 		std::cout << "Attaquer (a) ";
 
-		char c = _getch();
+		char battleChoice = _getch();
 
-		while (c != 'a')
+		while (battleChoice != 'a')
 		{
 			std::cout << std::endl << "Attaquer (a) " << std::endl;
-			c = _getch();
+			battleChoice = _getch();
 		}
 
 		std::cout << std::endl;
@@ -53,23 +53,11 @@ void Battle::Start()
 			monsterPtr->setHpLost(playerPtr->getAtk() / 2);
 			playerPtr->setHpLost(monsterPtr->getAtk() / 2);
 			std::cout << "les coups de " << playerPtr->getName() << " et " << monsterPtr->getName() << " s'entrechoquent!" << std::endl;
-			std::cout << monsterPtr->getName() << "(" << monsterPtr->getHp() << "hp)" << " inflige " << monsterPtr->getAtk() / 2 << " de degats a " << playerPtr->getName() << std::endl;
 			std::cout << playerPtr->getName() << " inflige " << playerPtr->getAtk() / 2 << " de degats a " << monsterPtr->getName() << std::endl << std::endl;
+			std::cout << monsterPtr->getName() << "(" << monsterPtr->getHp() << "hp)" << " inflige " << monsterPtr->getAtk() / 2 << " de degats a " << playerPtr->getName() << std::endl;
 		}
 
 		std::this_thread::sleep_for(std::chrono::seconds(2));
 
 	} while (monsterPtr->getHp() > 0 && playerPtr->getHp() > 0);
-
-	if (playerPtr->getHp() > 0)
-	{
-		std::cout << playerPtr->getName() << " remporte le combat" << std::endl;
-		std::cout << "hp restants: " << playerPtr->getHp() << std::endl;
-	}
-
-	else if (playerPtr->getHp() <= 0)
-	{
-		std::cout << playerPtr->getName() << " meurt au combat" << std::endl;
-	}
-
 }

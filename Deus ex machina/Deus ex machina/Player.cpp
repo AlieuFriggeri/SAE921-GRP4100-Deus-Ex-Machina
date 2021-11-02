@@ -4,30 +4,24 @@
 
 Player::Player()
 {
+	inventoryPtr = nullptr;
 	name = "player";
 	hp = 100;
 	atk = 10;
-	//inventory.push_back();
 }
 
-Player::Player(std::string name_, int hp_, int atk_)
+Player::Player(Inventory* inventoryPtr_, std::string name_, int hp_, int atk_)
 {
+	inventoryPtr = inventoryPtr_;
 	name = name_;
 	hp = hp_;
 	atk = atk_;
-	HealingPotion healingPotion("healing potion", 10);
-	//inventory.push_back(std::make_unique<Item>(HealingPotion("healing pot", 10)));
-	
 }
 
 Player::~Player()
 {
 }
 
-void Player::PrintName()
-{
-	std::cout << name;
-}
 
 /*void Player::attack()
 {
@@ -77,12 +71,17 @@ void Player::equip()
 
 void Player::displayInventory()
 {
-	inventory.Display();
+	inventoryPtr->Display();
 }
 
-Inventory Player::Get_Inventory()
+Inventory* Player::getInventoryPtr()
 {
-	return inventory;
+	return inventoryPtr;
+}
+
+void Player::setInventoryPtr(Inventory* newInventoryPtr)
+{
+	inventoryPtr = newInventoryPtr;
 }
 
 void Player::setHpLost(int hp_lost)
@@ -95,12 +94,42 @@ int Player::getAtk()
 	return atk;
 }
 
+void Player::setAtk(int newAtk)
+{
+	atk = newAtk;
+}
+
+void Player::printAtk()
+{
+	std::cout << atk << std::endl;
+}
+
 int Player::getHp()
 {
 	return hp;
 }
 
+void Player::setHp(int newHp)
+{
+	hp = newHp;
+}
+
+void Player::printHp()
+{
+	std::cout << hp << std::endl;
+}
+
 std::string Player::getName()
 {
 	return name;
+}
+
+void Player::setName(std::string newName)
+{
+	name = newName;
+}
+
+void Player::printName()
+{
+	std::cout << name << std::endl;
 }
